@@ -1,20 +1,24 @@
-let asideToggler = document.documentElement.querySelector('.aside-toggler');
-let aside = document.documentElement.querySelector('.aside');
-let blackout = document.documentElement.querySelector('.blackout');
+let section = document.querySelector('.section');
+let asideTogglers = document.getElementsByClassName('aside-toggler');
+let aside = document.querySelector('.aside');
+let blackout = document.querySelector('.blackout');
 
-asideToggler.addEventListener('click', () => {
-	console.log(event)
-	document.querySelector('.section').style.overflowY = 'hidden';
-	blackout.classList.toggle('blackout_visible');
-	aside.classList.toggle('aside_visible');
+[].forEach.call(asideTogglers, toggler => {
+	toggler.addEventListener('click', () => {
+		toggleAside();
+	});
 });
 blackout.addEventListener('click', () => {
-	console.log(event)
-	document.querySelector('.section').style.overflowY = 'scroll';
-	blackout.classList.toggle('blackout_visible');
-	aside.classList.toggle('aside_visible');
+	toggleAside();
 })
 
+function toggleAside() {
+	console.log(event)
+	let sectionProp = section.style.overflowY;
+	sectionProp === 'hidden' ? sectionProp = 'scroll' : 'hidden';
+	blackout.classList.toggle('blackout_visible');
+	aside.classList.toggle('aside_visible');
+}
 
 let categories = document.documentElement.querySelector('.categories');
 categories.addEventListener('click', event => {
