@@ -1,8 +1,8 @@
-let asideSwitcher = document.documentElement.querySelector('.fav-button');
+let asideToggler = document.documentElement.querySelector('.aside-toggler');
 let aside = document.documentElement.querySelector('.aside');
 let blackout = document.documentElement.querySelector('.blackout');
 
-asideSwitcher.addEventListener('click', () => {
+asideToggler.addEventListener('click', () => {
 	console.log(event)
 	document.querySelector('.section').style.overflowY = 'hidden';
 	blackout.classList.toggle('blackout_visible');
@@ -14,6 +14,7 @@ blackout.addEventListener('click', () => {
 	blackout.classList.toggle('blackout_visible');
 	aside.classList.toggle('aside_visible');
 })
+
 
 let categories = document.documentElement.querySelector('.categories');
 categories.addEventListener('click', event => {
